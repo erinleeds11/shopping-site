@@ -2,8 +2,28 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<thead>
+    <tr>
+        <th>Melon Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+    </tr>
+</thead>
 
-    <table class="table table-striped">
+<tr>
+{% for melon in melon_list %}
+    <td>{{melon.common_name}}</td>
+    <td>Quantity: {{melon.quantity}}</td>
+    <td>Price: ${{melon.price}}</td>
+    <td>Total: ${{melon.total_cost_melon}}</td>
+{% endfor %}
+</tr>
+    <div>
+        Total: ${{total_cost}}
+    </div>
+
+<!-- <tot><table class="table table-striped">
         <thead>
         <tr>
             <th>Melon Name</th>
@@ -40,7 +60,7 @@
         </tbody>
     </table>
 
-    <h3>Total: $27.00</h3>
+    <h3>Total: $27.00</h3> -->
 
     <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
 
