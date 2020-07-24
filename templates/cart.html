@@ -2,27 +2,31 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<thead>
+<table>
+    <thead>
     <tr>
         <th>Melon Name</th>
         <th>Quantity</th>
         <th>Price</th>
         <th>Total</th>
     </tr>
-</thead>
+    </thead>
+    <tbody>
+    {% for melon in melon_list %}
+    <tr>
+        <td>{{melon.common_name}}</td>
+        <td>Quantity: {{melon.quantity}}</td>
+        <td>Price: ${{melon.price}}</td>
+        <td>Total: ${{melon.total_cost_melon}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
 
-<tr>
-{% for melon in melon_list %}
-    <td>{{melon.common_name}}</td>
-    <td>Quantity: {{melon.quantity}}</td>
-    <td>Price: ${{melon.price}}</td>
-    <td>Total: ${{melon.total_cost_melon}}</td>
-{% endfor %}
-</tr>
-    <div>
-        Total: ${{total_cost}}
-    </div>
+</table>
 
+<div>
+    Total: ${{total_cost}}
+</div>
 <!-- <tot><table class="table table-striped">
         <thead>
         <tr>
